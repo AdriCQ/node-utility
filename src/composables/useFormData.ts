@@ -53,10 +53,9 @@ export function useFormData() {
     serialize: <T>(data: T) => serialize(data, options) as T,
     /**
      * urlToFile
-     * @param url
-     * @param filename
-     * @param mimeType
      * @returns
+     * @param base64
+     * @param type
      */
     urlToFile(base64: string, type = 'application/octet-stream') {
       const binStr = atob(base64);

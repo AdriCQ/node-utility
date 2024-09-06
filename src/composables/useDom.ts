@@ -4,6 +4,17 @@
  */
 export function useDom() {
   return {
+    scrollToElement(elementId: string) {
+      const element = document.getElementById(elementId);
+      if (element) {
+        element.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+      } else {
+        console.error('Element with id ' + elementId + ' not found.');
+      }
+    },
     /**
      * scrollTop
      */

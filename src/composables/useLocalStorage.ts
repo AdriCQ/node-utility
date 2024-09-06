@@ -2,6 +2,7 @@ import { useCrypt } from './useCrypt';
 /**
  * useStorage
  * @param key
+ * @param encrypted
  * @returns
  */
 export function useStorage<T = unknown>(key: string, encrypted = false) {

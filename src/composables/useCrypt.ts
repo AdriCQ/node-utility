@@ -1,3 +1,6 @@
+/**
+ * useCrypt
+ */
 export function useCrypt<T = unknown>() {
   return {
     decode: (data: string): T => {

@@ -6,4 +6,5 @@ export * from './composables/useDefaults';
 export * from './composables/useDom';
 export * from './composables/useFormData';
 export * from './composables/useLocalStorage';
+export * from './composables/usePhone';
 export * from './composables/usePlatform';
