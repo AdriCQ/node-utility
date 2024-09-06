@@ -1,5 +1,5 @@
 {
-  "name": "@adricq/node-utils",
+  "name": "@adricq/utils",
   "version": "0.1.1",
   "description": "AdriCQ Node Utils",
   "main": "./dist/main.js",
