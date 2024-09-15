@@ -21,7 +21,44 @@ export function useDate() {
     return new Date(date).toLocaleDateString('es-ES', options);
   }
 
+  function pretty(date: Date) {
+    // difference in milliseconds
+    const now = new Date();
+    const milliseconds = now.getTime() - date.getTime();
+
+    const minute = 1000 * 60;
+    const hour = minute * 60;
+    const day = hour * 24;
+    const week = day * 7;
+    const month = week * 30;
+
+    // Less than or equal to 24 hours
+    if (milliseconds <= day) {
+      const hours = Math.floor(milliseconds / hour);
+      return `${hours} hours ago`;
+    }
+    // More than 24 hours but less than a week
+    else if (milliseconds <= week) {
+      const days = Math.floor(milliseconds / day);
+      return `${days} days ago`;
+    }
+    // More than a week but less than a month
+    else if (milliseconds <= month) {
+      const weeks = Math.floor(milliseconds / week);
+      return `${weeks} weeks ago`;
+    }
+    // More than one month
+    else {
+      return date.toLocaleDateString(undefined, {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      });
+    }
+  }
+
   return {
     readableDate,
+    pretty,
   };
 }
