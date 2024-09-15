@@ -21,7 +21,7 @@ export function useDate() {
     return new Date(date).toLocaleDateString('es-ES', options);
   }
 
-  function pretty(date: Date) {
+  function prettySince(date: Date) {
     // difference in milliseconds
     const now = new Date();
     const milliseconds = now.getTime() - date.getTime();
@@ -32,20 +32,25 @@ export function useDate() {
     const week = day * 7;
     const month = week * 30;
 
+    // Less than or equal to 1 hours
+    if (milliseconds <= hour) {
+      const minutes = Math.floor(milliseconds / minute);
+      return `${minutes} minutos`;
+    }
     // Less than or equal to 24 hours
     if (milliseconds <= day) {
       const hours = Math.floor(milliseconds / hour);
-      return `${hours} hours ago`;
+      return `${hours} horas`;
     }
     // More than 24 hours but less than a week
     else if (milliseconds <= week) {
       const days = Math.floor(milliseconds / day);
-      return `${days} days ago`;
+      return `${days} días`;
     }
     // More than a week but less than a month
     else if (milliseconds <= month) {
       const weeks = Math.floor(milliseconds / week);
-      return `${weeks} weeks ago`;
+      return `${weeks} semanas`;
     }
     // More than one month
     else {
@@ -59,6 +64,6 @@ export function useDate() {
 
   return {
     readableDate,
-    pretty,
+    prettySince,
   };
 }
