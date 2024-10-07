@@ -1,6 +1,6 @@
 {
   "name": "@adricq/vue3-composables",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "AdriCQ Vue Composables",
   "main": "./dist/main.js",
   "module": "./dist/main.mjs",
