@@ -13,21 +13,13 @@ export function usePhone() {
     return regex.test(phoneNumber);
   }
 
-  function formatCubanPhoneNumber(phoneNumber: string, { withPrefix = false }) {
+  function formatCubanPhoneNumber(phoneNumber: string) {
     // Eliminar espacios en blanco
-    let formattedNumber = phoneNumber.replace(/\s+/g, '');
+    let formattedNumber = phoneNumber.replace(/\D+/g, '');;
 
-    // Verificar si el número ya comienza con +53
-    if (withPrefix && !formattedNumber.startsWith('+53')) {
-      // Si no comienza con +53, agregarlo
-      formattedNumber = '+53' + formattedNumber;
+    if (formattedNumber.length > 8) {
+      formattedNumber = formattedNumber.slice(-8)
     }
-
-    // Asegurarse de que solo queden los primeros 8 dígitos después de +53
-    formattedNumber = withPrefix
-      ? formattedNumber.slice(0, 3) + formattedNumber.slice(3).slice(0, 8)
-      : formattedNumber.slice(0, 8);
-
     return formattedNumber;
   }
 
