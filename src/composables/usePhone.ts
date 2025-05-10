@@ -15,10 +15,10 @@ export function usePhone() {
 
   function formatCubanPhoneNumber(phoneNumber: string) {
     // Eliminar espacios en blanco
-    let formattedNumber = phoneNumber.replace(/\D+/g, '');;
+    let formattedNumber = phoneNumber.replace(/\D+/g, '');
 
     if (formattedNumber.length > 8) {
-      formattedNumber = formattedNumber.slice(-8)
+      formattedNumber = formattedNumber.slice(-8);
     }
     return formattedNumber;
   }
